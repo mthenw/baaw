@@ -29,4 +29,28 @@ describe('Agent', function () {
             data: { user: 1 }
         });
     });
+
+    it('should (un)register callback when remote agent is done', function (done) {
+        var agent = new Agent(this.socket);
+
+        agent.do(
+            function () { console.log('test'); },
+            {},
+            done
+        );
+
+        this.socket.emit('done');
+        this.socket.emit('done');
+    });
+
+    it('should accept callback as a second parameter', function (done) {
+        var agent = new Agent(this.socket);
+
+        agent.do(
+            function () { console.log('test'); },
+            done
+        );
+
+        this.socket.emit('done');
+    });
 });
