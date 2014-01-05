@@ -1,13 +1,16 @@
 'use strict';
 
 var Agent = require('./lib/agent');
+var BrowserScript = require('./lib/browser_script');
 var EventEmitter = require('events').EventEmitter;
 var util = require('util');
 
-var Mistrz = function (io) {
-    var NAMESPACE = '/mistrz';
-    var self = this;
+var NAMESPACE = '/mistrz';
 
+var Mistrz = function (io) {
+    this.script = new BrowserScript();
+
+    var self = this;
     io.of(NAMESPACE).on('connection', function () {
         self.emit('new', new Agent());
     });

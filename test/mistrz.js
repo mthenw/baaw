@@ -2,6 +2,7 @@
 
 var sinon = require('sinon');
 var Agent = require('../lib/agent');
+var BrowserScript = require('../lib/browser_script');
 var EventEmitter = require('events').EventEmitter;
 
 describe('mistrz', function () {
@@ -32,5 +33,11 @@ describe('mistrz', function () {
 
         this.ioStub.called.should.equal(true);
         this.namespaceStub.called.should.equal(true);
+    });
+
+    it('should return browser script content', function () {
+        var mistrz = require('../')(this.io);
+
+        mistrz.script.should.be.an.instanceOf(BrowserScript);
     });
 });
