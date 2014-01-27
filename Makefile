@@ -1,7 +1,7 @@
+test:
+	@./node_modules/.bin/mocha test/*.js --require should --no-colors
+
 lint:
 	@./node_modules/.bin/jshint .
 
-test:
-	@./node_modules/.bin/mocha test/*.js
-
-.PHONY: lint test
+.PHONY: test lint
