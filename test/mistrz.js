@@ -35,7 +35,7 @@ describe('mistrz', function () {
         this.namespaceStub.called.should.equal(true);
     });
 
-    it('should return browser script content', function () {
+    it('should return browser script', function () {
         var mistrz = require('../')(this.io);
 
         mistrz.script.should.be.an.instanceOf(BrowserScript);
