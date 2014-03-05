@@ -8,15 +8,19 @@ var EventEmitter = require('events').EventEmitter;
 describe('mistrz', function () {
   beforeEach(function () {
     this.namespace = new EventEmitter();
-    this.namespaceStub = sinon.stub(this.namespace, 'on').withArgs('connection').yieldsAsync();
+    sinon.stub(this.namespace, 'on').withArgs('connection').yieldsAsync();
 
-    this.io = {of: function () {
-    }};
-    this.ioStub = sinon.stub(this.io, 'of').withArgs('/mistrz').returns(this.namespace);
+    this.io = {of: function () {}};
+    sinon.stub(this.io, 'of').withArgs('/mistrz').returns(this.namespace);
+  });
+
+  afterEach(function () {
+    this.namespace.on.restore();
+    this.io.of.restore();
   });
 
   it('should emit "new" event for every connected agent', function (done) {
-    var mistrz = require('../')(this.io);
+    var mistrz = require('../lib/mistrz')(this.io);
     mistrz.on('new', function () {
       done();
     });
@@ -26,14 +30,11 @@ describe('mistrz', function () {
   });
 
   it('should emit "new" event with agent instance', function (done) {
-    var mistrz = require('../')(this.io);
+    var mistrz = require('../lib/mistrz')(this.io);
     mistrz.on('new', function (agent) {
       agent.should.be.instanceOf(Agent);
       done();
     });
-
-    this.ioStub.called.should.equal(true);
-    this.namespaceStub.called.should.equal(true);
   });
 
   it('should return browser script', function () {
