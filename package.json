@@ -1,26 +1,27 @@
 {
-    "name": "mistrz",
-    "version": "0.1.0",
-    "description": "",
-    "homepage": "https://github.com/mthenw/mistrz",
-    "author": "Maciej Winnicki <maciej.winnicki@gmail.com>",
-    "license": "MIT",
-    "dependencies": {
-        "socket.io": "0.9.16"
-    },
-    "devDependencies": {
-        "jshint": "~2.3.0",
-        "should": "~2.1.0",
-        "mocha": "~1.14.0",
-        "sinon": "~1.7.3"
-    },
-    "repository": {
-        "type": "git",
-        "url": "http://github.com/mthenw/mistrz.git"
-    },
-    "keywords": [],
-    "engine": {
-        "node": ">= 0.8.0"
-    },
-    "main": "index"
+  "name": "mistrz",
+  "version": "0.1.0",
+  "description": "",
+  "homepage": "https://github.com/mthenw/mistrz",
+  "author": "Maciej Winnicki <maciej.winnicki@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "socket.io": "0.9.16"
+  },
+  "devDependencies": {
+    "jshint": "~2.3.0",
+    "mocha": "~1.14.0",
+    "sinon": "~1.7.3",
+    "jsdom": "^0.10.1",
+    "chai": "^1.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/mthenw/mistrz.git"
+  },
+  "keywords": [],
+  "engine": {
+    "node": ">= 0.8.0"
+  },
+  "main": "index"
 }

@@ -1,6 +1,7 @@
 'use strict';
 
 var sinon = require('sinon');
+var expect = require('chai').expect;
 var EventEmitter = require('events').EventEmitter;
 var Agent = require('../lib/agent');
 
@@ -14,14 +15,14 @@ describe('Agent', function () {
   it('should send job to remote agent using socket', function () {
     this.agent.work(function () { console.log('test'); });
 
-    this.socketSpy.lastCall.args[0].should.eql('work');
-    this.socketSpy.lastCall.args[1].executor.should.eql('function () { console.log(\'test\'); }');
+    expect(this.socketSpy.lastCall.args[0]).to.eql('work');
+    expect(this.socketSpy.lastCall.args[1].executor).to.eql('function () { console.log(\'test\'); }');
   });
 
   it('should send data to remote agent', function () {
     this.agent.work(function () { console.log('test'); }, {user: 1});
 
-    this.socketSpy.lastCall.args[1].should.eql({
+    expect(this.socketSpy.lastCall.args[1]).to.eql({
       executor: 'function () { console.log(\'test\'); }',
       data: { user: 1 }
     });

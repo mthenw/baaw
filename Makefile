@@ -1,8 +1,8 @@
 test:
-	@./node_modules/.bin/mocha test/*.js --require should --reporter spec
+	@./node_modules/.bin/mocha test/*.js --reporter spec
 
 test-watch:
-	@./node_modules/.bin/mocha test/*.js --require should --reporter spec --watch
+	@./node_modules/.bin/mocha test/*.js --reporter spec --watch
 
 lint:
 	@./node_modules/.bin/jshint .
