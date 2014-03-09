@@ -1,8 +1,8 @@
 {
-  "name": "mistrz",
+  "name": "baaw",
   "version": "0.1.0",
   "description": "",
-  "homepage": "https://github.com/mthenw/mistrz",
+  "homepage": "https://github.com/mthenw/baaw.js",
   "author": "Maciej Winnicki <maciej.winnicki@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/mthenw/mistrz.git"
+    "url": "http://github.com/mthenw/baaw.js.git"
   },
   "keywords": [],
   "engine": {

@@ -6,13 +6,13 @@ var Agent = require('../lib/agent');
 var BrowserScript = require('../lib/browser_script');
 var EventEmitter = require('events').EventEmitter;
 
-describe('mistrz', function () {
+describe('baaw', function () {
   beforeEach(function () {
     this.namespace = new EventEmitter();
     sinon.stub(this.namespace, 'on').withArgs('connection').yieldsAsync();
 
     this.io = {of: function () {}};
-    sinon.stub(this.io, 'of').withArgs('/mistrz').returns(this.namespace);
+    sinon.stub(this.io, 'of').withArgs('/baaw').returns(this.namespace);
   });
 
   afterEach(function () {
@@ -21,16 +21,16 @@ describe('mistrz', function () {
   });
 
   it('should emit "new" event with agent instance', function (done) {
-    var mistrz = require('../lib/mistrz')(this.io);
-    mistrz.on('new', function (agent) {
+    var baaw = require('../lib/baaw')(this.io);
+    baaw.on('new', function (agent) {
       expect(agent).to.be.instanceOf(Agent);
       done();
     });
   });
 
   it('should return browser script', function () {
-    var mistrz = require('../')(this.io);
+    var baaw = require('../')(this.io);
 
-    expect(mistrz.script).to.be.an.instanceOf(BrowserScript);
+    expect(baaw.script).to.be.an.instanceOf(BrowserScript);
   });
 });

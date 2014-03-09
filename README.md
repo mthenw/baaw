@@ -1,6 +1,6 @@
-# mistrz - work in progress
+# baaw - Browser as a Worker
 
 ## Installation
 
-    npm install mistrz
+    npm install baaw
 
