@@ -3,7 +3,7 @@
 var sinon = require('sinon');
 var expect = require('chai').expect;
 var EventEmitter = require('events').EventEmitter;
-var Agent = require('../lib/agent');
+var Agent = require('../lib/Agent');
 
 describe('Agent', function () {
   beforeEach(function () {

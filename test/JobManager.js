@@ -3,7 +3,7 @@
 var sinon = require('sinon');
 var expect = require('chai').expect;
 var EventEmitter = require('events').EventEmitter;
-var JobManager = require('../lib/job_manager');
+var JobManager = require('../lib/JobManager');
 
 describe('JobManager', function () {
   it('should send result to server', function () {

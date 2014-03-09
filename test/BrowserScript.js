@@ -2,7 +2,7 @@
 
 var jsdom = require('jsdom');
 var expect = require('chai').expect;
-var BrowserScript = require('../lib/browser_script');
+var BrowserScript = require('../lib/BrowserScript');
 
 describe('BrowserScript', function () {
   var window;

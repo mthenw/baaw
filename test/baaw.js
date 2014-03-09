@@ -2,8 +2,8 @@
 
 var sinon = require('sinon');
 var expect = require('chai').expect;
-var Agent = require('../lib/agent');
-var BrowserScript = require('../lib/browser_script');
+var Agent = require('../lib/Agent');
+var BrowserScript = require('../lib/BrowserScript');
 var EventEmitter = require('events').EventEmitter;
 
 describe('baaw', function () {
