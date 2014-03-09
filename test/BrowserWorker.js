@@ -3,13 +3,13 @@
 var sinon = require('sinon');
 var expect = require('chai').expect;
 var EventEmitter = require('events').EventEmitter;
-var Worker = require('../lib/Worker');
+var BrowserWorker = require('../lib/BrowserWorker');
 
-describe('Worker', function () {
+describe('BrowserWorker', function () {
   beforeEach(function () {
     this.socket = new EventEmitter();
     sinon.spy(this.socket, 'emit');
-    this.worker = new Worker(this.socket);
+    this.worker = new BrowserWorker(this.socket);
   });
 
   it('should send job to remote worker using socket', function () {
