@@ -2,7 +2,7 @@
 
 var sinon = require('sinon');
 var expect = require('chai').expect;
-var Agent = require('../lib/Agent');
+var Worker = require('../lib/Worker');
 var BrowserScript = require('../lib/BrowserScript');
 var EventEmitter = require('events').EventEmitter;
 
@@ -20,10 +20,10 @@ describe('baaw', function () {
     this.io.of.restore();
   });
 
-  it('should emit "new" event with Agent instance', function (done) {
+  it('should emit "new" event with Worker instance', function (done) {
     var baaw = require('../lib/baaw')(this.io);
-    baaw.on('new', function (agent) {
-      expect(agent).to.be.instanceOf(Agent);
+    baaw.on('new', function (worker) {
+      expect(worker).to.be.instanceOf(Worker);
       done();
     });
   });
