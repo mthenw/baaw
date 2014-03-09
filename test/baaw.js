@@ -20,7 +20,7 @@ describe('baaw', function () {
     this.io.of.restore();
   });
 
-  it('should emit "new" event with agent instance', function (done) {
+  it('should emit "new" event with Agent instance', function (done) {
     var baaw = require('../lib/baaw')(this.io);
     baaw.on('new', function (agent) {
       expect(agent).to.be.instanceOf(Agent);
@@ -28,7 +28,7 @@ describe('baaw', function () {
     });
   });
 
-  it('should return browser script', function () {
+  it('should return BrowserScript instance', function () {
     var baaw = require('../')(this.io);
 
     expect(baaw.script).to.be.an.instanceOf(BrowserScript);
