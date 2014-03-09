@@ -8,21 +8,21 @@ var Agent = require('../lib/agent');
 describe('Agent', function () {
   beforeEach(function () {
     this.socket = new EventEmitter();
-    this.socketSpy = sinon.spy(this.socket, 'emit');
+    sinon.spy(this.socket, 'emit');
     this.agent = new Agent(this.socket);
   });
 
   it('should send job to remote agent using socket', function () {
     this.agent.work(function () { console.log('test'); });
 
-    expect(this.socketSpy.lastCall.args[0]).to.eql('work');
-    expect(this.socketSpy.lastCall.args[1].executor).to.eql('function () { console.log(\'test\'); }');
+    expect(this.socket.emit.lastCall.args[0]).to.eql('work');
+    expect(this.socket.emit.lastCall.args[1].executor).to.eql('function () { console.log(\'test\'); }');
   });
 
   it('should send data to remote agent', function () {
     this.agent.work(function () { console.log('test'); }, {user: 1});
 
-    expect(this.socketSpy.lastCall.args[1]).to.eql({
+    expect(this.socket.emit.lastCall.args[1]).to.eql({
       executor: 'function () { console.log(\'test\'); }',
       data: { user: 1 }
     });
