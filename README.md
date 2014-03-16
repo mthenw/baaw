@@ -1,6 +1,6 @@
-# baaw - Browser as a Worker
+# baaw - browser as a worker
 
 ## Installation
 
-    npm install baaw
+    npm install baaw --save
 
