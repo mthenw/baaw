@@ -1,7 +1,7 @@
 {
   "name": "baaw",
   "version": "0.1.0",
-  "description": "",
+  "description": "browser as a worker",
   "homepage": "https://github.com/mthenw/baaw",
   "author": "Maciej Winnicki <maciej.winnicki@gmail.com>",
   "license": "MIT",
