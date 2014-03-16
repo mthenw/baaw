@@ -21,7 +21,7 @@ describe('baaw', function () {
   });
 
   it('should emit "new" event with BrowserWorker instance', function (done) {
-    var baaw = require('../lib/baaw')(this.io);
+    var baaw = require('../')(this.io, 'localhost');
     baaw.on('new', function (worker) {
       expect(worker).to.be.instanceOf(BrowserWorker);
       done();
@@ -29,8 +29,21 @@ describe('baaw', function () {
   });
 
   it('should return BrowserScript instance', function () {
-    var baaw = require('../')(this.io);
+    var baaw = require('../')(this.io, 'localhost');
 
     expect(baaw.script).to.be.an.instanceOf(BrowserScript);
+  });
+
+  it('should throw error if no socket.io instance', function () {
+    expect(function () {
+      require('../')();
+    }).to.throw(/I need socket.io to live./);
+  });
+
+  it('should throw error if no socket.io url passed', function () {
+    var self = this;
+    expect(function () {
+      require('../')(self.io);
+    }).to.throw(/I don't know URL of socket.io./);
   });
 });
