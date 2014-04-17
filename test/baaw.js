@@ -21,7 +21,9 @@ describe('baaw', function () {
   });
 
   it('should emit "new" event with BrowserWorker instance', function (done) {
-    var baaw = require('../')(this.io, 'localhost');
+    BrowserWorker = sinon.spy(BrowserWorker);
+
+    var baaw = require('../')(this.io, 'localhost/socket.io');
     baaw.on('new', function (worker) {
       expect(worker).to.be.instanceOf(BrowserWorker);
       done();
@@ -29,7 +31,7 @@ describe('baaw', function () {
   });
 
   it('should return BrowserScript instance', function () {
-    var baaw = require('../')(this.io, 'localhost');
+    var baaw = require('../')(this.io, 'localhost/socket.io');
 
     expect(baaw.script).to.be.an.instanceOf(BrowserScript);
   });

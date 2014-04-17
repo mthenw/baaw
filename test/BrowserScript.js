@@ -19,7 +19,6 @@ describe('BrowserScript', function () {
         done();
       }
     });
-
   });
 
   afterEach(function () {
