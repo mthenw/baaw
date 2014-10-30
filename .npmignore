@@ -1,6 +1,9 @@
 example/
 test/
 
+.gitignore
+.jshintrc
+.jshintignore
 .npmignore
 .DS_Store
 .travis.yml
