@@ -3,9 +3,9 @@
 var app = require('express')();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
-var baaw = require('../')(io, 'http://127.0.0.1:1337/socket.io/socket.io.js');
+var baaw = require('../')(io, 'http://127.0.0.1:9999/socket.io/socket.io.js');
 
-server.listen(1337);
+server.listen(9999);
 
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');

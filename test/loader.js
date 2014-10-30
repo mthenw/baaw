@@ -1,19 +1,19 @@
 'use strict';
 
+var sinon = require('sinon');
 var jsdom = require('jsdom');
 var expect = require('chai').expect;
-var BrowserScript = require('../lib/BrowserScript');
+var loader = require('../lib/loader');
 
-describe('BrowserScript', function () {
+describe('loader', function () {
   var window;
 
   beforeEach(function (done) {
     var html = '<!doctype html><title></title><body></body>';
-    var script = new BrowserScript('socket.io');
 
     jsdom.env({
       html: html,
-      src: [script.content],
+      src: [loader.toString()],
       done: function (err, domWindow) {
         window = domWindow;
         done();
@@ -25,15 +25,13 @@ describe('BrowserScript', function () {
     window.close();
   });
 
-  it('should load socket.io from server', function () {
+  it('should callback after script load', function () {
+    var callback = sinon.spy();
+    window.loader(callback);
     var script = window.document.getElementsByTagName('script')[0];
 
-    expect(script).to.be.ok;
-    expect(script.src).to.equal('socket.io');
-    expect(script.type).to.equal('text/javascript');
-  });
+    script.onload();
 
-  it('should define JobManager', function () {
-    expect(window.JobManager).to.be.ok;
+    expect(callback.calledOnce).to.be.true;
   });
 });
