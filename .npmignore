@@ -1,0 +1,6 @@
+example/
+test/
+
+.npmignore
+.DS_Store
+.travis.yml
