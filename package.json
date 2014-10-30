@@ -23,5 +23,9 @@
   "engine": {
     "node": ">= 0.8.0"
   },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test/*.js --reporter spec",
+    "lint": "./node_modules/.bin/jshint ."
+  },
   "main": "index"
 }
