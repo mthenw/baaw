@@ -1,7 +1,7 @@
 # baaw
 compute on the client side
 
-[![Build Status](https://travis-ci.org/mthenw/baaw.svg)](https://travis-ci.org/mthenw/baaw)
+[![Build Status](https://travis-ci.org/mthenw/baaw.svg)](https://travis-ci.org/mthenw/baaw) [![Version](http://img.shields.io/npm/v/baaw.svg)](https://www.npmjs.org/package/baaw)
 
 ## Installation
 
