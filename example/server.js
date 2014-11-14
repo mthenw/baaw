@@ -12,7 +12,7 @@ server.listen(9999);
 app
   .get('/', function (req, res) {
     res.sendfile(__dirname + '/index.html');
-  });
+  })
   .get('/script', function (req, res) {
     res.setHeader('content-type', 'text/javascript');
     res.send(baaw.script.content);
@@ -21,10 +21,21 @@ app
 // Baaw setup
 
 baaw.on('new', function (worker) {
-  worker.work(
-    function () {
-      // Below code will be executed in browser
-      document.body.style.background = 'red';
-    }
-  );
+  // New worker (browser) connected
+
+  var executor = function (color, manager) {
+    // Below code will be executed in browser
+    document.body.style.background = 'red';
+    manager.sendResult('I\'ve change background color!');
+  }
+
+  // Data passed to executor
+  var data = 'red';
+
+  var onDone = function (result) {
+    // Below code will be excuted in node after sending result from browser
+    console.log('Browsers result:', result);
+  };
+
+  worker.work(executor, data, onDone);
 });
